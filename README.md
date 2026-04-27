@@ -126,6 +126,12 @@ C'est à partir de ce moment là que l'alerte apparaît dans Alertmanager si la 
 
 ## Exercice 7 
 
+30) Dans cet exercice, tout va se passer depuis l'interface web de Prometheus dans l'onglet Query : <img width="1165" height="318" alt="image" src="https://github.com/user-attachments/assets/fd5c1d93-0bc2-4b56-ad91-98391b533da7" /><br>
+
+31) La requête lancée est : <em>demo_http_requests_total</em>
+<img width="1159" height="300" alt="image" src="https://github.com/user-attachments/assets/1242479e-4029-44a5-b644-aeecedfcc06a" /><br>
+
+
 
 
 
