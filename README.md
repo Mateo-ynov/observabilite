@@ -95,4 +95,11 @@ Comme il a été supprimé précédemment, on relance le conteneur prometheus av
 Pour générer du trafic avant d'effectuer le test, la commande lancée est : <em>for ($i=1; $i -le 20; $i++) {<br>
   curl.exe http://localhost:8000/api/users<br>
   curl.exe http://localhost:8000/api/orders<br>
-}</em>
+}</em><br>
+
+## Exercice 6
+
+25) Dans le dossier /Prometheus, créer un fichier alertmanager.yml avec <em>code alertmanager.yml</em> dans lequel tout est laissé par défaut.<br>
+<img width="704" height="203" alt="image" src="https://github.com/user-attachments/assets/46923f9b-20a1-40b6-a856-151eb5b20909" /><br>
+On lance ensuite le conteneur alertmanager sur le port 9093 <img width="802" height="173" alt="image" src="https://github.com/user-attachments/assets/164bb4d3-b6c2-4540-8c9f-161aae9981a4" /><br>
+
