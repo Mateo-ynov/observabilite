@@ -54,14 +54,22 @@ Apparition de la cible Node en status UP dans Status > Target :<br>
 
 ## Exercice 4
 
-15) Création d'un fichier targets.json contenant les deux endpoints (prometheus et node) avec <em>code targets.json<em><br>
+15) Création d'un fichier targets.json contenant les deux endpoints (prometheus et node) avec <em>code targets.json</em><br>
 <img width="515" height="452" alt="image" src="https://github.com/user-attachments/assets/8547727e-e39f-4e5b-9d36-b64eef017f64" /><br>
 
-16) Modifier le fichier prometheus.yml pour monter targets.json sur <em>/etc/prometheus/sd/targets.json</em><br>
+16) Modifier le fichier prometheus.yml pour monter targets.json sur <em>/etc/prometheus/sd/targets.json</em>. Pour cela le plus simple est de supprimer l'ancien conteneur prometheus avec <em>docker rm -f prometheus</em><br>
 
 17) Dans le fichier prometheus.yml, les static_configs sont remplacer par file_sd_configs.<br>
 <img width="471" height="337" alt="image" src="https://github.com/user-attachments/assets/3003be75-d145-4c9d-a246-c252b99a9feb" /><br>
 Ainsi avec cela, Prometheus va directement aller lire les cibles depuis les fichiers JSON.<br>
+Relancer le conteneur prometheus pour prendre en compe les nouvelles modifications.<br>
+<img width="766" height="195" alt="image" src="https://github.com/user-attachments/assets/945c6a40-5814-4125-8194-6e2947b31d93" /><br>
+Dans Status > Target on ne voit maintenant plus qu'un seul élément mais contenant les deux cibles.<br>
+<img width="1158" height="268" alt="image" src="https://github.com/user-attachments/assets/e35489ca-640d-4f97-a8e9-504fd9c77670" /><br>
+
+18) Afin de vérifier la prise en compte de prometheus sans rechargement. Modifier le fichier tragets.json en ne gardant plus que la partie node_exporter.<br>
+Après avoir attendu pendant 5 secondes, on observe dans les targets que la cible correspondant a prometheus a disparue automatiquement. On ne voit plus que la cible "node". Cette modification a été effectué sans la nécessité de lancer un relaod.<br>
+<img width="1155" height="237" alt="image" src="https://github.com/user-attachments/assets/ac5de846-335e-4042-a0c4-02959108a024" /><br>
 
 
 
