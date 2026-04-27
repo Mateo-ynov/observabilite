@@ -87,10 +87,10 @@ Créer un fichier api_rules.yml dans le répertoire rules. Celui-ci n'a qu'un se
 Comme il a été supprimé précédemment, on relance le conteneur prometheus avec le montage du dossier rules.
 <img width="766" height="220" alt="image" src="https://github.com/user-attachments/assets/cf2b5b62-d485-4b6b-8c77-97e4cd373372" /><br>
 
-23) Dans prometheus, dans Status > Rule, on observe l'apparition de la règle précédemment définie dans api_rules.yml.
+22) Dans prometheus, dans Status > Rule, on observe l'apparition de la règle précédemment définie dans api_rules.yml.
 <img width="1163" height="221" alt="image" src="https://github.com/user-attachments/assets/2287af81-2427-4d05-a6e8-7b84a4d40f07" /><br>
 
-24) Afin de vérifier que celle-ci renvoie bien des données, dans l'onglet Query, interroger la nouvelle métrique <em>job:http_requests:rate5m</em>.<br>
+23) Afin de vérifier que celle-ci renvoie bien des données, dans l'onglet Query, interroger la nouvelle métrique <em>job:http_requests:rate5m</em>.<br>
 <img width="1162" height="243" alt="image" src="https://github.com/user-attachments/assets/8db0f7f4-4d22-4cce-bd79-2cc5a70d71b8" /><br>
 Pour générer du trafic avant d'effectuer le test, la commande lancée est : <em>for ($i=1; $i -le 20; $i++) {<br>
   curl.exe http://localhost:8000/api/users<br>
@@ -99,7 +99,21 @@ Pour générer du trafic avant d'effectuer le test, la commande lancée est : <e
 
 ## Exercice 6
 
-25) Dans le dossier /Prometheus, créer un fichier alertmanager.yml avec <em>code alertmanager.yml</em> dans lequel tout est laissé par défaut.<br>
+24) Dans le dossier /Prometheus, créer un fichier alertmanager.yml avec <em>code alertmanager.yml</em> dans lequel on mets le minimum par défaut. Le reste sera spécifié par la suite au lancement du conteneur<br>
 <img width="704" height="203" alt="image" src="https://github.com/user-attachments/assets/46923f9b-20a1-40b6-a856-151eb5b20909" /><br>
 On lance ensuite le conteneur alertmanager sur le port 9093 <img width="802" height="173" alt="image" src="https://github.com/user-attachments/assets/164bb4d3-b6c2-4540-8c9f-161aae9981a4" /><br>
+On peut tester le lancement en testant : http://localhost:9093 sur un navigateur. On arrive donc à accéder à Alertmanager.<br>
+<img width="1120" height="441" alt="image" src="https://github.com/user-attachments/assets/7da17839-c2d8-4782-9f75-d4d5bb85d6a5" /><br>
+
+25) Dans le répertoire rules, modifier le fichier api_alerts.yml pour permettre la création d'une alerte HighErrorRate.<br>
+<img width="948" height="470" alt="image" src="https://github.com/user-attachments/assets/4b8738c4-61d7-4028-88f5-6f540ef1dce9" /><br>
+Cette règle permet de déclencher une alerte si les erreurs HTTP 5xx dépassent 5% du trafic de démo-api pendant 2 minutes.<br>
+
+26)27) Dans le fichier prometheus.yml, vérifier la présence de rule_files et surtout ajouter une partie alerting qui permet d'envoyer les alertes vers Alertmanager.<br>
+<img width="686" height="552" alt="image" src="https://github.com/user-attachments/assets/df6ee43a-969e-4bd8-9cf1-3a638f48a4be" /><br>
+
+28) Pour prendre en compte les modifications effectuées, recharger prometheus avec <em>curl.exe -X POST http://localhost:9090/-/reload</em><br>
+Sur Prometheus, dans Status > Rule on remarque l'apparition de la nouvelle règle nommée HighErrorRate.<br>
+<img width="1160" height="220" alt="image" src="https://github.com/user-attachments/assets/49545e95-ca36-46bc-9947-73c147e57911" /><br>
+
 
