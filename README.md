@@ -92,7 +92,7 @@ Comme il a été supprimé précédemment, on relance le conteneur prometheus av
 
 24) Afin de vérifier que celle-ci renvoie bien des données, dans l'onglet Query, interroger la nouvelle métrique <em>job:http_requests:rate5m</em>.<br>
 <img width="1162" height="243" alt="image" src="https://github.com/user-attachments/assets/8db0f7f4-4d22-4cce-bd79-2cc5a70d71b8" /><br>
-Pour générer du trafic avant d'effectuer le test, la commande lancée est : <em>for ($i=1; $i -le 20; $i++) {
-  curl.exe http://localhost:8000/api/users
-  curl.exe http://localhost:8000/api/orders
+Pour générer du trafic avant d'effectuer le test, la commande lancée est : <em>for ($i=1; $i -le 20; $i++) {<br>
+  curl.exe http://localhost:8000/api/users<br>
+  curl.exe http://localhost:8000/api/orders<br>
 }</em>
