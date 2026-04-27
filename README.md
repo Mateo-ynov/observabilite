@@ -3,7 +3,7 @@ Contient l'ensemble des activités réalisées sur le module 'Observabilité des
 
 ## Exercice 1
 
-1) Récupération de la dernière version de l'image docker de prometheus : docker pull prom/prometheus:latest
+1) Récupération de la dernière version de l'image docker de prometheus <em>docker pull prom/prometheus:latest</em>
 
 2) Lancer le conteneur prometheus : docker run -d --name prometheus -p 9090:9090 prom/prometheus:latest<br>
 <img width="992" height="325" alt="image" src="https://github.com/user-attachments/assets/e59cfb6b-1fed-41ff-8e88-03316ae291b9" /><br>
@@ -36,6 +36,8 @@ Celui reprend les 3 éléments demandés :<br>
 
 10) La modification a bien été prise en compte dans Status > Configuration, on observe que scrape_interval est passé à 5s<br>
 <img width="239" height="163" alt="image" src="https://github.com/user-attachments/assets/72cacb15-9614-4295-964a-d79961187f72" />
+
+## Exercice 3
 
 
 
