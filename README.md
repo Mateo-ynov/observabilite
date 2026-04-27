@@ -124,7 +124,7 @@ Afin de déclencher l'alerte, il faut générer du trafic pendant plusieurs minu
 Puis après 2 minutes en firing : <img width="1156" height="422" alt="image" src="https://github.com/user-attachments/assets/5e3b48eb-47c7-42e7-bdf8-a915f79d2670" /><br>
 C'est à partir de ce moment là que l'alerte apparaît dans Alertmanager si la condition reste vraie après 2 minutes : <img width="1475" height="725" alt="image" src="https://github.com/user-attachments/assets/e2813110-246c-45df-9b57-956dfbbd347a" /><br>
 
-
+## Exercice 7 
 
 
 
