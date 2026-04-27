@@ -49,14 +49,19 @@ Celui reprend les 3 éléments demandés :<br>
 Apparition de la cible Node en status UP dans Status > Target :<br>
 <img width="1158" height="132" alt="image" src="https://github.com/user-attachments/assets/9c0d5ef2-826b-4812-9f6b-81d09899d2a3" /><br>
 
-14) Dans l'onglet Qurey de prometheus lancer la requête <em>node_cpu_seconds_total</em>. On obtient ainsi une séries de métriques :<br>
+14) Dans l'onglet Qurey de prometheus lancer la requête <em>node_cpu_seconds_total</em>. On obtient ainsi une séries de métriques qui prouvent bien que node_exporter est correctement scrapé par Prometheus :<br>
 <img width="1143" height="494" alt="image" src="https://github.com/user-attachments/assets/c3599811-c36d-468a-b451-2e11d69cca4c" /><br>
 
 ## Exercice 4
 
+15) Création d'un fichier targets.json contenant les deux endpoints (prometheus et node) avec <em>code targets.json<em><br>
+<img width="515" height="452" alt="image" src="https://github.com/user-attachments/assets/8547727e-e39f-4e5b-9d36-b64eef017f64" /><br>
 
+16) Modifier le fichier prometheus.yml pour monter targets.json sur <em>/etc/prometheus/sd/targets.json</em><br>
 
-
+17) Dans le fichier prometheus.yml, les static_configs sont remplacer par file_sd_configs.<br>
+<img width="471" height="337" alt="image" src="https://github.com/user-attachments/assets/3003be75-d145-4c9d-a246-c252b99a9feb" /><br>
+Ainsi avec cela, Prometheus va directement aller lire les cibles depuis les fichiers JSON.<br>
 
 
 
