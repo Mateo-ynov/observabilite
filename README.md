@@ -78,7 +78,7 @@ Après avoir attendu pendant 5 secondes, on observe dans les targets que la cibl
 19) Créer un répertoire rules avec <em>mkdir rules</em>. On a donc maintenant la structure suivante :
 <img width="592" height="184" alt="image" src="https://github.com/user-attachments/assets/c35add6f-555c-42b3-9de6-258d9b04602e" /><br>
 Créer un fichier api_rules.yml dans le répertoire rules. Celui-ci n'a qu'un seul groupe et qu'une seule qui dis que toutes les 30s, prometheus calcule le taux moyen sur 5 minutes de http_requests_total et l'enregistre dans une nouvelle métrique appelée job:http_requests:rate5m.<br>
-<img width="637" height="221" alt="image" src="https://github.com/user-attachments/assets/dbbd4699-6d79-4a2d-9782-8ab06b98de93" /><br>
+<img width="694" height="224" alt="image" src="https://github.com/user-attachments/assets/9909ab30-8bd1-4bf0-a89f-6d6307b12b56" /><br>
 
 20) Modifier le fichier prometheus.yml pour monter le répertoire sur <em>/etc/prometheus/rules</em>. Pour cela le plus simple est de supprimer l'ancien conteneur prometheus avec <em>docker rm -f prometheus</em><br>
 
@@ -88,7 +88,11 @@ Comme il a été supprimé précédemment, on relance le conteneur prometheus av
 <img width="766" height="220" alt="image" src="https://github.com/user-attachments/assets/cf2b5b62-d485-4b6b-8c77-97e4cd373372" /><br>
 
 23) Dans prometheus, dans Status > Rule, on observe l'apparition de la règle précédemment définie dans api_rules.yml.
-<img width="685" height="215" alt="image" src="https://github.com/user-attachments/assets/5ceecc3c-45fd-4829-aec0-f3aad53f2bd2" /><br>
+<img width="1163" height="221" alt="image" src="https://github.com/user-attachments/assets/2287af81-2427-4d05-a6e8-7b84a4d40f07" /><br>
 
 24) Afin de vérifier que celle-ci renvoie bien des données, dans l'onglet Query, interroger la nouvelle métrique <em>job:http_requests:rate5m</em>.<br>
-
+<img width="1162" height="243" alt="image" src="https://github.com/user-attachments/assets/8db0f7f4-4d22-4cce-bd79-2cc5a70d71b8" /><br>
+Pour générer du trafic avant d'effectuer le test, la commande lancée est : <em>for ($i=1; $i -le 20; $i++) {
+  curl.exe http://localhost:8000/api/users
+  curl.exe http://localhost:8000/api/orders
+}</em>
