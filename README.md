@@ -115,5 +115,18 @@ Cette règle permet de déclencher une alerte si les erreurs HTTP 5xx dépassent
 28) Pour prendre en compte les modifications effectuées, recharger prometheus avec <em>curl.exe -X POST http://localhost:9090/-/reload</em><br>
 Sur Prometheus, dans Status > Rule on remarque l'apparition de la nouvelle règle nommée HighErrorRate.<br>
 <img width="1160" height="220" alt="image" src="https://github.com/user-attachments/assets/49545e95-ca36-46bc-9947-73c147e57911" /><br>
+Afin de déclencher l'alerte, il faut générer du trafic pendant plusieurs minutes à l'aide de la commande : <em>for ($i=1; $i -le 300; $i++) {<br>
+  curl.exe -s http://localhost:8000/api/orders | Out-Null<br>
+}<br></em>
+
+
+29) Avec la génération de trafic, dans prometheus, l'alerte passe d'abord en pending : <img width="1151" height="414" alt="image" src="https://github.com/user-attachments/assets/489b1609-8592-41ff-b4c5-6f776c2e6e08" /><br>
+Puis après 2 minutes en firing : <img width="1156" height="422" alt="image" src="https://github.com/user-attachments/assets/5e3b48eb-47c7-42e7-bdf8-a915f79d2670" /><br>
+C'est à partir de ce moment là que l'alerte apparaît dans Alertmanager si la condition reste vraie après 2 minutes : <img width="1475" height="725" alt="image" src="https://github.com/user-attachments/assets/e2813110-246c-45df-9b57-956dfbbd347a" /><br>
+
+
+
+
+
 
 
