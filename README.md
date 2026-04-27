@@ -1,6 +1,8 @@
 # Observabilité des systèmes
 Contient l'ensemble des activités réalisées sur le module 'Observabilité des systèmes'
 
+# Module 1 - Prometheus
+
 ## Exercice 1
 
 1) Récupération de la dernière version de l'image docker de prometheus <em>docker pull prom/prometheus:latest</em>
@@ -71,7 +73,22 @@ Dans Status > Target on ne voit maintenant plus qu'un seul élément mais conten
 Après avoir attendu pendant 5 secondes, on observe dans les targets que la cible correspondant a prometheus a disparue automatiquement. On ne voit plus que la cible "node". Cette modification a été effectué sans la nécessité de lancer un relaod.<br>
 <img width="1155" height="237" alt="image" src="https://github.com/user-attachments/assets/ac5de846-335e-4042-a0c4-02959108a024" /><br>
 
+## Exercice 5
 
+19) Créer un répertoire rules avec <em>mkdir rules</em>. On a donc maintenant la structure suivante :
+<img width="592" height="184" alt="image" src="https://github.com/user-attachments/assets/c35add6f-555c-42b3-9de6-258d9b04602e" /><br>
+Créer un fichier api_rules.yml dans le répertoire rules. Celui-ci n'a qu'un seul groupe et qu'une seule qui dis que toutes les 30s, prometheus calcule le taux moyen sur 5 minutes de http_requests_total et l'enregistre dans une nouvelle métrique appelée job:http_requests:rate5m.<br>
+<img width="637" height="221" alt="image" src="https://github.com/user-attachments/assets/dbbd4699-6d79-4a2d-9782-8ab06b98de93" /><br>
 
+20) Modifier le fichier prometheus.yml pour monter le répertoire sur <em>/etc/prometheus/rules</em>. Pour cela le plus simple est de supprimer l'ancien conteneur prometheus avec <em>docker rm -f prometheus</em><br>
 
+21) Dans le fichier prometheus.yml ajouter une partie rule_files Le fichier est maintenant le suivant :
+<img width="481" height="405" alt="image" src="https://github.com/user-attachments/assets/6f5b250d-62c1-45a6-afc4-8646b13afaec" /><br>
+Comme il a été supprimé précédemment, on relance le conteneur prometheus avec le montage du dossier rules.
+<img width="766" height="220" alt="image" src="https://github.com/user-attachments/assets/cf2b5b62-d485-4b6b-8c77-97e4cd373372" /><br>
+
+23) Dans prometheus, dans Status > Rule, on observe l'apparition de la règle précédemment définie dans api_rules.yml.
+<img width="685" height="215" alt="image" src="https://github.com/user-attachments/assets/5ceecc3c-45fd-4829-aec0-f3aad53f2bd2" /><br>
+
+24) Afin de vérifier que celle-ci renvoie bien des données, dans l'onglet Query, interroger la nouvelle métrique <em>job:http_requests:rate5m</em>.<br>
 
