@@ -130,9 +130,4 @@ C'est à partir de ce moment là que l'alerte apparaît dans Alertmanager si la 
 
 31) La requête lancée est : <em>demo_http_requests_total</em>
 <img width="1159" height="300" alt="image" src="https://github.com/user-attachments/assets/1242479e-4029-44a5-b644-aeecedfcc06a" /><br>
-
-
-
-
-
-
+Le résultat est un vecteur instantané car la requête retourne la valeur acctuelle de chaque série temporelle demo_http_requests_total au moment de l'évaluation.<br>
