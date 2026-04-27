@@ -27,6 +27,15 @@ Celui reprend les 3 éléments demandés :<br>
   <li>définir un intervalle de scrapa global de 10 secondes avec "scrape_interval: 10s"<br></li>
   <li>ajouter un label externe "environment=lab" avec "external_labels: environment: lab"</li>
   <li>demander à prometheus de se surveiller lui-même : "targets: ["localhost:9090"]"</li>
-</ul> 
+</ul><br>
 
-8) 
+8) Lancement du nouveau conteneur à partir du prometheus.yml créé<br>
+<img width="596" height="177" alt="image" src="https://github.com/user-attachments/assets/6c5f3ac8-d435-41c0-b6cd-1b174295886f" /><br>
+
+9) Le fichier a été modifié, le scrape n'est plus de 10s mais de 5s. Un déclenchement de rechargement est mis en place : "curl.exe -X POST http://localhost:9090/-/reload"<br>
+
+10) La modification a bien été prise en compte dans Status > Configuration, on observe que scrape_interval est passé à 5s<br>
+<img width="239" height="163" alt="image" src="https://github.com/user-attachments/assets/72cacb15-9614-4295-964a-d79961187f72" />
+
+
+
