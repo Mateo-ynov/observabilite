@@ -24,8 +24,8 @@ Contient l'ensemble des activités réalisées sur le module 'Observabilité des
 <img width="416" height="263" alt="image" src="https://github.com/user-attachments/assets/4147c58d-86bf-45af-968e-969cc5c6e7df" /><br>
 Celui reprend les 3 éléments demandés :<br>
 <ul>
-  <li>définir un intervalle de scrapa global de 10 secondes avec <em>"scrape_interval: 10s"</em>em><br></li>
-  <li>ajouter un label externe "environment=lab" avec <em>"external_labels: environment: lab"</em>em></li>
+  <li>définir un intervalle de scrapa global de 10 secondes avec <em>"scrape_interval: 10s"</em><br></li>
+  <li>ajouter un label externe "environment=lab" avec <em>"external_labels: environment: lab"</em></li>
   <li>demander à prometheus de se surveiller lui-même avec <em>"targets: ["localhost:9090"]"</em></li>
 </ul><br>
 
@@ -38,6 +38,27 @@ Celui reprend les 3 éléments demandés :<br>
 <img width="239" height="163" alt="image" src="https://github.com/user-attachments/assets/72cacb15-9614-4295-964a-d79961187f72" />
 
 ## Exercice 3
+
+11) Lancement de node_exporter <em>docker run -d --name node-exporter -p 9100:9100 prom/node-exporter:latest</em><br>
+<img width="792" height="178" alt="image" src="https://github.com/user-attachments/assets/1dc4cfb1-fa60-4fb4-87a9-c2496d999a8f" /><br>
+
+12) Ajout d'un nouveau job dans le prometheus.yml de la même manière que pour prometheus mais pour node<br>
+<img width="476" height="84" alt="image" src="https://github.com/user-attachments/assets/1224dbf8-72cd-4108-9ff9-efaec458fe46" /><br>
+
+13) Relancement du déclenchement de rechargement avec <em>curl.exe -X POST http://localhost:9090/-/reload</em><br>
+Apparition de la cible Node en status UP dans Status > Target :<br>
+<img width="1158" height="132" alt="image" src="https://github.com/user-attachments/assets/9c0d5ef2-826b-4812-9f6b-81d09899d2a3" /><br>
+
+14) Dans l'onglet Qurey de prometheus lancer la requête <em>node_cpu_seconds_total</em>. On obtient ainsi une séries de métriques :<br>
+<img width="1143" height="494" alt="image" src="https://github.com/user-attachments/assets/c3599811-c36d-468a-b451-2e11d69cca4c" /><br>
+
+## Exercice 4
+
+
+
+
+
+
 
 
 
