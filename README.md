@@ -32,10 +32,25 @@ Trois conteneurs sont maintenant lancés : alloy, loki et grafana.
 7) Le test est validé, on retrouve dans l'Explore de Grafana les éléments du test lancé.
 <img width="1917" height="770" alt="image" src="https://github.com/user-attachments/assets/5e034e05-7a39-4767-94f0-32c4a4a03fb0" /><br>
 
-8)  
+## Exercice 2 : Comprendre les labels et le mécanisme de Relabeling
 
-## Exercice 2
+•	Objectif : Assimiler la gestion des labels par Grafana Alloy et l'indexation par Loki.<br>
+•	Tâche : Modifier la configuration Alloy pour supprimer un label natif (ex. container_id ou filename). Ajouter un label statique 'environment=development' et un label dynamique 'loglevel' extrait des métadonnées du flux de logs. Vérifier le résultat dans Grafana.<br>
 
+1) Modification du fichier config.alloy pour la configuration de Grafana Alloy. Cette mofification a pour but de supprimer un label nabel natif, ajouter un label statique 'environment=development' et un label dynamique 'loglevel' extrait des métadonnées du flux de logs.
+<img width="493" height="930" alt="image" src="https://github.com/user-attachments/assets/10b4352a-ba9a-4d49-af6d-5e4faf9b8f3d" /><br>
+
+2) Pour prendre en compte la modification, il est nécessaire de relancer la stack. Pour cela d'abord la stopper avec 'docker compose down'. Puis relancer le déploiement avec 'docker compose up -d'.
+
+3) Vérifier que tous les conteneurs sont bien relancés et accessibles
+<img width="1370" height="483" alt="image" src="https://github.com/user-attachments/assets/07e0edcb-592b-4757-8e5c-f3141b4f34a0" /><br>
+
+4) Si tout est bon, effectuer un test avec une commande qui génère des messages d'erreurs
+<img width="1307" height="201" alt="image" src="https://github.com/user-attachments/assets/b1b4009c-7eac-49ea-bf79-d3e2db85d4be" /><br>
+
+5) S'assurer que cela remonte bien dans Explore dans Grafana.<br>
+Dans l'exemple, un filtre est fait sur tous les messages de type 'ERROR'.
+<img width="1902" height="831" alt="image" src="https://github.com/user-attachments/assets/438f51f3-7608-4130-8d74-5ef5cc97b6a0" /><br>
 
 
 ## Exercice 3
