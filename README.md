@@ -18,8 +18,9 @@ Contient l'ensemble des activités réalisées sur le module 'Observabilité des
 3) Déploiement des conteneurs avec "docker compose up -d"
 <img width="1307" height="112" alt="image" src="https://github.com/user-attachments/assets/ef4d7257-e460-48ed-bb0a-395867c6be66" /><br>
 Trois conteneurs sont maintenant lancés : grafana, loki et alloy.
+<img width="845" height="252" alt="image" src="https://github.com/user-attachments/assets/0a260395-c4ec-4722-8f86-3020f20a089a" />
 
-4) 
+
 
 ## Exercice 2
 
