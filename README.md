@@ -79,12 +79,20 @@ Add-Content .\apps-logs\app2.log "ligne 3 - apres rotation"<br>
 S'assurer que cela apparaît ensuite dans Grafana sans écraser ce qu'il y a eu précédemment.
 <img width="1738" height="590" alt="image" src="https://github.com/user-attachments/assets/4eb238d6-07d6-4f82-a215-8f5b2f76fe6c" /><br>
 
-8) 
+## Exercice 4 : Pipelines Alloy et Parsing à la source
 
+•	Objectif : Transformer, filtrer et enrichir les structures de logs directement au niveau de la couche de collecte.<br>
+•	Tâche : Produire des logs fictifs au format JSON. Configurer un composant 'loki.process' dans Grafana Alloy pour parser ce JSON, extraire le champ 'user_id' en tant que label temporaire, et supprimer toutes les lignes de niveau 'debug' avant l'envoi à Loki.<br>
 
-## Exercice 4
+1) Pour cette partie, on remodifie le contenu du fichier 'config.alloy'. Dans ce nouveau fichier, stage.json parse les logs JSON, user_id est extrait depuis le JSON, stage.labels transforme user_id en label Loki et stage.drop supprime les logs dont level="debug".
+<img width="461" height="922" alt="image" src="https://github.com/user-attachments/assets/8de9c22e-430e-4834-aa67-f8883c9b9182" /><br>
 
+2) Relancer le service Alloy pour prendre en compte la configuration : 'docker compose restart alloy'.
 
+3) Dans Grafana, vérifier que les informations apparaissent, par exemple en filtrant sur un user.
+<img width="1903" height="717" alt="image" src="https://github.com/user-attachments/assets/73db330e-676a-4f4d-88a8-c9f82be37002" /><br>
+
+4) 
 
 ## Exercice 5
 
