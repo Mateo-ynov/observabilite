@@ -51,6 +51,7 @@ Trois conteneurs sont maintenant lancés : alloy, loki et grafana.
 5) S'assurer que cela remonte bien dans Explore dans Grafana.<br>
 Dans l'exemple, un filtre est fait sur tous les messages de type 'ERROR'.
 <img width="1902" height="831" alt="image" src="https://github.com/user-attachments/assets/438f51f3-7608-4130-8d74-5ef5cc97b6a0" /><br>
+En cliquant sur 'Label browser', il est possible de sélectionner le label souhaité.
 
 ## Exercice 3 : Rotation des logs et découverte dynamique
 
@@ -131,7 +132,11 @@ Add-Content .\ex6-now.log 'service=auth level=info message="HTTP/1.1 login ok" s
 3) Ensuite, la requête métrique permet de calculer le taux par seconde des logs d'erreurs sur une fenêtre de 5 minutes et groupé par service. Ainsi, dans l'exemple on voit deux services : "api" et "auth".
 <img width="1757" height="553" alt="image" src="https://github.com/user-attachments/assets/ca7b7884-4d7f-44e7-9e99-f7cf33e32394" /><br>
 
-4) Mettre en place une alerte sur Grafana dans Alerting > Alert rules > New alert rule
+4) Mettre en place une alerte sur Grafana dans Alerting > Alert rules > New alert rule, avec les paramètres suivants :
+<img width="1012" height="655" alt="image" src="https://github.com/user-attachments/assets/8ca00b28-5b40-43e8-a07c-241f8dd62a81" /><br>
+<img width="580" height="405" alt="image" src="https://github.com/user-attachments/assets/f2875ac7-3de8-4442-8b9b-43c188f689e7" /><br>
+
+
 
 ## Exercice 7 
 
