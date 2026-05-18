@@ -73,8 +73,13 @@ Cette configuration permet de demander à Alloy de suivre tous les fichiers ".lo
 5) Vérifier ensuite que les données du fichier de log remontent bien dans Grafana.
 <img width="1913" height="617" alt="image" src="https://github.com/user-attachments/assets/f83e64a5-321a-4284-aaab-dcf6fdaa861c" /><br>
 
-6) 
-7) 
+6) Pour faire un test de rotation, lancer directement en shell les commandes suivantes : "Rename-Item .\apps-logs\app2.log app2.log.1
+New-Item .\apps-logs\app2.log -ItemType File -Force
+Add-Content .\apps-logs\app2.log "ligne 3 - apres rotation"<br>
+S'assurer que cela apparaît ensuite dans Grafana sans écraser ce qu'il y a eu précédemment.
+<img width="1738" height="590" alt="image" src="https://github.com/user-attachments/assets/4eb238d6-07d6-4f82-a215-8f5b2f76fe6c" /><br>
+
+8) 
 
 
 ## Exercice 4
