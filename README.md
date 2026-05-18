@@ -52,9 +52,29 @@ Trois conteneurs sont maintenant lancés : alloy, loki et grafana.
 Dans l'exemple, un filtre est fait sur tous les messages de type 'ERROR'.
 <img width="1902" height="831" alt="image" src="https://github.com/user-attachments/assets/438f51f3-7608-4130-8d74-5ef5cc97b6a0" /><br>
 
+## Exercice 3 : Rotation des logs et découverte dynamique
 
-## Exercice 3
+•	Objectif : Garantir une collecte continue et sans doublons lors des événements de rotation de fichiers.<br>
+•	Tâche : Configurer Alloy pour suivre un répertoire (/var/log/apps/*.log). Simuler l'activité d'une application, puis déclencher manuellement une rotation de fichiers (renommage et création d'un nouveau fichier vide). Confirmer qu'Alloy conserve sa position de lecture sans perte.<br>
 
+1) Pour débuter, créer un répertoire 'apps-logs' qui contiendra l'ensemble des logs.<br>
+Pour la suite, mettre dans ce répertoire un fichier 'app-log' contenant quelques lignes, par exemple :
+<img width="463" height="87" alt="image" src="https://github.com/user-attachments/assets/f7965311-0315-425f-99f4-5281777beca6" /><br>
+
+2) Modifier le service alloy dans le docker-compose.yml pour ajouter le volume correspondant à 'apps-logs'.
+<img width="496" height="96" alt="image" src="https://github.com/user-attachments/assets/c3be7d73-d1d4-4fbd-a82e-054bfb59fa1e" /><br>
+
+3) Modifier le contenu du fichier 'config.alloy' par une version plus orientée fichiers
+<img width="461" height="455" alt="image" src="https://github.com/user-attachments/assets/94d7cff7-be58-483c-8e6e-c83dd69dffdb" /><br>
+Cette configuration permet de demander à Alloy de suivre tous les fichiers ".log" présents dans "/var/log/apps/".
+
+4) Pour prendre en compte ces configurations, il est nécessaire de relancer la stack.
+
+5) Vérifier ensuite que les données du fichier de log remontent bien dans Grafana.
+<img width="1913" height="617" alt="image" src="https://github.com/user-attachments/assets/f83e64a5-321a-4284-aaab-dcf6fdaa861c" /><br>
+
+6) 
+7) 
 
 
 ## Exercice 4
