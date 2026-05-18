@@ -95,8 +95,21 @@ S'assurer que cela apparaît ensuite dans Grafana sans écraser ce qu'il y a eu 
 4) On peut également vérifier que les lignes de niveau 'debug' ont été supprimées.
 <img width="1918" height="408" alt="image" src="https://github.com/user-attachments/assets/4fbf17f5-176e-4cab-a50d-671135d744a3" /><br>
 
-## Exercice 5
+# Module 2 : Maîtrise de LogQL
 
+## Exercice 5 : Filtrage avancé et requêtes de formatage
+
+•	Objectif : Maîtriser les filtres de ligne LogQL et les fonctions d'expression de formatage de sortie.<br>
+•	Tâche :Écrire une requête LogQL filtrant les lignes contenant 'HTTP/1.1' mais excluant 'status=200'. Parser ensuite ces logs (json ou logfmt) et utiliser 'line_format' pour réécrire l'affichage sous la forme : '[NIVEAU] -> MESSAGE'.<br>
+
+1) Pour cet exercice, générer des logs de test au format logfmt dans un nouveau fichier.<br>
+"New-Item .\apps-logs\http-format.log -ItemType File -Force
+Add-Content .\apps-logs\http-format.log 'level=info message="GET /api/users HTTP/1.1" status=200'
+Add-Content .\apps-logs\http-format.log 'level=warn message="POST /api/login HTTP/1.1" status=401'
+Add-Content .\apps-logs\http-format.log 'level=error message="GET /api/orders HTTP/1.1" status=500'
+Add-Content .\apps-logs\http-format.log 'level=debug message="GET /debug HTTP/1.1" status=404'"
+
+2) 
 
 ## Exercice 6
 
