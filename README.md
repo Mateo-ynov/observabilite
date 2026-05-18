@@ -100,19 +100,38 @@ S'assurer que cela apparaît ensuite dans Grafana sans écraser ce qu'il y a eu 
 ## Exercice 5 : Filtrage avancé et requêtes de formatage
 
 •	Objectif : Maîtriser les filtres de ligne LogQL et les fonctions d'expression de formatage de sortie.<br>
-•	Tâche :Écrire une requête LogQL filtrant les lignes contenant 'HTTP/1.1' mais excluant 'status=200'. Parser ensuite ces logs (json ou logfmt) et utiliser 'line_format' pour réécrire l'affichage sous la forme : '[NIVEAU] -> MESSAGE'.<br>
+•	Tâche : Écrire une requête LogQL filtrant les lignes contenant 'HTTP/1.1' mais excluant 'status=200'. Parser ensuite ces logs (json ou logfmt) et utiliser 'line_format' pour réécrire l'affichage sous la forme : '[NIVEAU] -> MESSAGE'.<br>
 
 1) Pour cet exercice, générer des logs de test au format logfmt dans un nouveau fichier.<br>
-"New-Item .\apps-logs\http-format.log -ItemType File -Force
-Add-Content .\apps-logs\http-format.log 'level=info message="GET /api/users HTTP/1.1" status=200'
-Add-Content .\apps-logs\http-format.log 'level=warn message="POST /api/login HTTP/1.1" status=401'
-Add-Content .\apps-logs\http-format.log 'level=error message="GET /api/orders HTTP/1.1" status=500'
-Add-Content .\apps-logs\http-format.log 'level=debug message="GET /debug HTTP/1.1" status=404'"
+"New-Item .\apps-logs\http-format.log -ItemType File -Force<br>
+Add-Content .\apps-logs\http-format.log 'level=info message="GET /api/users HTTP/1.1" status=200'<br>
+Add-Content .\apps-logs\http-format.log 'level=warn message="POST /api/login HTTP/1.1" status=401'<br>
+Add-Content .\apps-logs\http-format.log 'level=error message="GET /api/orders HTTP/1.1" status=500'<br>
+Add-Content .\apps-logs\http-format.log 'level=debug message="GET /debug HTTP/1.1" status=404'"<br>
 
-2) 
+2) Pour tester cela, la requête LogQL est : "{job="json-app-logs"} |= "HTTP/1.1" != "status=200" | logfmt | line_format "[{{.level}}] -> {{.message}}""
+<img width="1728" height="522" alt="image" src="https://github.com/user-attachments/assets/210b0ff2-3ff8-4a74-acc2-0b7830dde725" /><br>
+La requête LogQL filtre les logs contenant HTTP/1.1 tout en excluant les lignes avec status=200. Les logs restants sont parsés au format logfmt, puis reformattés avec line_format sous la forme [NIVEAU] -> MESSAGE. On constate que seuls les statuts non-200 sont affichés : warn, error et debug.
 
-## Exercice 6
+## Exercice 6 : Métriques LogQL et expressions d'alerte
 
+•	Objectif : Convertir des données textuelles de logs en métriques de séries temporelles pour le monitoring.<br>
+•	Tâche :Créer une requête de métrique calculant le taux par seconde des logs d'erreurs sur une fenêtre de 5 minutes, groupé par service. Formuler ensuite une expression d'alerte Grafana qui se déclenche si ce taux dépasse 5 erreurs/sec pendant plus de 2 minutes.<br>
+
+1) Comme précédemment, de nouveaux logs ont été créés pour l'exercice :<br>
+"New-Item .\ex6-now.log -ItemType File -Force<br>
+Add-Content .\ex6-now.log 'service=api level=error message="HTTP/1.1 request failed" status=500'<br>
+Add-Content .\ex6-now.log 'service=api level=error message="HTTP/1.1 timeout" status=504'<br>
+Add-Content .\ex6-now.log 'service=auth level=error message="HTTP/1.1 login failed" status=401'<br>
+Add-Content .\ex6-now.log 'service=auth level=info message="HTTP/1.1 login ok" status=200'"<br>
+
+2) Dans un premier temps vérifier que Grafana reçoit bien les logs avant de créer la requête de métrique.
+<img width="1736" height="547" alt="image" src="https://github.com/user-attachments/assets/6cfbb870-3c76-4deb-933c-70af208cadc2" /><br>
+
+3) Ensuite, la requête métrique permet de calculer le taux par seconde des logs d'erreurs sur une fenêtre de 5 minutes et groupé par service. Ainsi, dans l'exemple on voit deux services : "api" et "auth".
+<img width="1757" height="553" alt="image" src="https://github.com/user-attachments/assets/ca7b7884-4d7f-44e7-9e99-f7cf33e32394" /><br>
+
+4) Mettre en place une alerte sur Grafana dans Alerting > Alert rules > New alert rule
 
 ## Exercice 7 
 
