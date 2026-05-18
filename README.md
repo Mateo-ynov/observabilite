@@ -1,11 +1,10 @@
-Bonjour
-
 # Observabilité des systèmes
-Contient l'ensemble des activités réalisées sur le module 'Observabilité des systèmes'
+Contient l'ensemble des activités réalisées sur le module 'Observabilité des systèmes' sur la partie Loki
 
-# Module 1 - Prometheus
+# Travaux Pratiques Grafana Loki & Grafana Alloy Docker
+# Module 1 : Les fondamentaux
 
-## Exercice 1
+## Exercice 1 : Déploiement mono-nœud et vérification du flux de logs
 
 1) Récupération de la dernière version de l'image docker de prometheus <em>docker pull prom/prometheus:latest</em>
 
