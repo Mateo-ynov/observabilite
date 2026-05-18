@@ -92,7 +92,8 @@ S'assurer que cela apparaît ensuite dans Grafana sans écraser ce qu'il y a eu 
 3) Dans Grafana, vérifier que les informations apparaissent, par exemple en filtrant sur un user.
 <img width="1903" height="717" alt="image" src="https://github.com/user-attachments/assets/73db330e-676a-4f4d-88a8-c9f82be37002" /><br>
 
-4) 
+4) On peut également vérifier que les lignes de niveau 'debug' ont été supprimées.
+<img width="1918" height="408" alt="image" src="https://github.com/user-attachments/assets/4fbf17f5-176e-4cab-a50d-671135d744a3" /><br>
 
 ## Exercice 5
 
