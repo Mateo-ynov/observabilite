@@ -4,3 +4,6 @@ Contient l'ensemble des activités réalisées sur le module 'Observabilité des
 ## Branche 'Exo Prometheus' => Exercices réalisés sur Prometheus
 
 ## Branche 'Exo Loki' => Exercices réalisés sur Loki
+
+## Branche 'Exo Alloy' => Exercices réalisés sur Alloy
+
