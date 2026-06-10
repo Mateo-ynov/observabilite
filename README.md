@@ -83,7 +83,3 @@ Pile en place depuis l'exercice 1 ; app de l'exercice 3 en train d'émettre des 
 
 5) De la même manière que dans l'exercice précédent, vérifier dans un autre terminal que les logs contiennent 'deployment.environment: Str(lab)' avec 'kubectl -n observability logs deploy/alloy --tail=300 | grep "deployment.environment"'.<br>
 <img width="941" height="177" alt="image" src="https://github.com/user-attachments/assets/b90e14e5-62f8-4325-8613-c82d2f3868a2" /><br>
-
-
-
-
